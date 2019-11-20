@@ -31,6 +31,7 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "web" {
+  count = 2
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
   availability_zone = "ap-southeast-2b"
